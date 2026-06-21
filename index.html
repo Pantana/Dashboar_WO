@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Pivot Manajemen Tugas Teknisi</title>
+  <!-- Menggunakan Font Modern Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons untuk Ikon Premium -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Menghubungkan File Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme"> <!-- Secara default menggunakan tema gelap (Premium Slate Dark) -->
+
+  <!-- Wrapper Utama Aplikasi -->
+  <div class="app-container">
+
+    <!-- SIDEBAR: Kontrol, Pengaturan, dan Statistik Ringkas -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <i data-lucide="layout-dashboard" class="logo-icon"></i>
+          <span>PivotTask</span>
+        </div>
+        <button id="theme-toggle" class="btn-icon" title="Ganti Tema (Gelap/Terang)">
+          <i data-lucide="sun" class="sun-icon"></i>
+          <i data-lucide="moon" class="moon-icon"></i>
+        </button>
+      </div>
+
+      <!-- Section: Status Sinkronisasi & Mode Kerja -->
+      <div class="sidebar-section card">
+        <h3><i data-lucide="database"></i> Mode Data</h3>
+        
+        <div class="mode-switch-container">
+          <span class="mode-label">Demo (Mock Data)</span>
+          <label class="switch">
+            <input type="checkbox" id="data-mode-toggle">
+            <span class="slider round"></span>
+          </label>
+          <span class="mode-label">Google Sheets</span>
+        </div>
+
+        <div id="sheets-config-area" class="sheets-config hidden">
+          <label for="web-app-url">Google Web App URL:</label>
+          <div class="input-with-icon">
+            <i data-lucide="link-2"></i>
+            <input type="url" id="web-app-url" placeholder="https://script.google.com/macros/s/.../exec">
+          </div>
+          <p class="help-text">Salin URL deploy Web App dari Google Apps Script Anda.</p>
+        </div>
+
+        <div class="status-indicator-wrapper">
+          <div class="status-indicator">
+            <span class="status-dot online" id="status-dot"></span>
+            <span id="status-text">Demo Mode Aktif</span>
+          </div>
+          <button id="refresh-btn" class="btn btn-secondary btn-sm">
+            <i data-lucide="refresh-cw"></i> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- Section: Statistik Ringkas -->
+      <div class="sidebar-section card">
+        <h3><i data-lucide="pie-chart"></i> Statistik WO</h3>
+        <div class="stats-grid">
+          <div class="stat-box stat-full-width">
+            <span class="stat-value" id="stat-total-wo">0</span>
+            <span class="stat-label">Total WO</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value text-info" id="stat-ogp-wo">0</span>
+            <span class="stat-label">OGP</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value text-success" id="stat-terpasang-wo">0</span>
+            <span class="stat-label">Terpasang</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value text-danger" id="stat-kp-wo">0</span>
+            <span class="stat-label">Kd. Pelanggan</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value text-danger" id="stat-kt-wo">0</span>
+            <span class="stat-label">Kd. Teknis</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value text-muted" id="stat-kl-wo">0</span>
+            <span class="stat-label">Kd. Lainnya</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value text-success" style="color: #6ee7b7 !important;" id="stat-completeps-wo">0</span>
+            <span class="stat-label">Complete PS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Leaderboard Complete PS -->
+      <div class="sidebar-section card">
+        <h3><i data-lucide="trophy" class="text-warning"></i> Leaderboard Tim</h3>
+        <p class="help-text" style="margin-bottom: 12px; font-size: 0.7rem;">Berdasarkan jumlah Complete PS saat ini</p>
+        <div class="leaderboard-list" id="leaderboard-list">
+          <!-- Item leaderboard akan dirender secara dinamis dari JS -->
+        </div>
+      </div>
+
+      <!-- Panduan Singkat Setup untuk Pengguna -->
+      <div class="sidebar-section guide-card">
+        <h4><i data-lucide="info"></i> Cara Hubungkan Sheets</h4>
+        <ol>
+          <li>Buka file Google Sheets Anda.</li>
+          <li>Pilih <strong>Ekstensi</strong> &gt; <strong>Apps Script</strong>.</li>
+          <li>Salin kode dari <code>google-apps-script.js</code> ke sana.</li>
+          <li>Klik <strong>Terapkan</strong> &gt; <strong>Penerapan Baru</strong>.</li>
+          <li>Pilih jenis <strong>Aplikasi Web</strong>, akses oleh <strong>Siapa Saja (Anyone)</strong>.</li>
+          <li>Salin URL Web App dan paste di atas.</li>
+        </ol>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA: Dashboard Utama -->
+    <main class="main-content">
+      <header class="main-header">
+        <div class="header-titles">
+          <h1>Dashboard Progres WO Teknisi</h1>
+          <p>Memanajemen status WO dan teknisi secara real-time melalui pivot table interaktif.</p>
+        </div>
+        
+        <!-- Filter Pencarian Cepat Global -->
+        <div class="search-bar">
+          <i data-lucide="search"></i>
+          <input type="text" id="global-search" placeholder="Cari Nama Pelanggan, No WO, No Internet, Alamat...">
+        </div>
+      </header>
+
+      <!-- Panel Notifikasi / Loading / Error -->
+      <div id="loader" class="loader-overlay hidden">
+        <div class="spinner"></div>
+        <p>Memproses data...</p>
+      </div>
+
+      <div id="alert-container" class="alert-container"></div>
+
+      <!-- MAIN CONTAINER: Pivot Progress Table -->
+      <section class="dashboard-section card pivot-section">
+        <div class="section-header">
+          <div class="section-title-group">
+            <i data-lucide="grid" class="section-icon"></i>
+            <h2>Pivot Progress Kerja Teknisi</h2>
+          </div>
+          <span class="badge" id="data-updated-time">Terakhir diperbarui: -</span>
+        </div>
+
+        <div class="table-responsive-container">
+          <!-- Tabel Pivot akan dirender secara dinamis di sini -->
+          <table class="pivot-table" id="pivot-table">
+            <thead>
+              <!-- Kolom status akan di-render dari JS -->
+            </thead>
+            <tbody>
+              <!-- Baris teknisi dan data angka akan di-render dari JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Legenda Warna Status -->
+        <div class="status-legend">
+          <span class="legend-item"><span class="legend-dot status-antrian"></span> OGP (Progres)</span>
+          <span class="legend-item"><span class="legend-dot status-terpasang"></span> TERPASANG / COMPLETE PS</span>
+          <span class="legend-item"><span class="legend-dot status-pending"></span> KENDALA (Pelanggan / Teknis)</span>
+          <span class="legend-item"><span class="legend-dot status-lainnya"></span> Lainnya</span>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- MODAL POP-UP: Detail Tugas / Kanban Board -->
+  <div class="modal-backdrop" id="kanban-modal">
+    <div class="modal-card">
+      <header class="modal-header">
+        <div class="modal-title-area">
+          <i data-lucide="kanban" class="modal-header-icon"></i>
+          <div>
+            <h2 id="modal-title">Detail Tugas</h2>
+            <p id="modal-subtitle">Menampilkan detail pekerjaan</p>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button id="modal-lock-btn" class="btn-icon" title="Kunci modal agar tidak tertutup saat klik luar (Toggle)">
+            <i data-lucide="unlock" id="lock-icon"></i>
+          </button>
+          <button id="modal-close-btn" class="btn-icon" title="Tutup">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Panel Search & Info di dalam Modal -->
+      <div class="modal-filter-bar">
+        <div class="search-bar search-bar-sm">
+          <i data-lucide="search"></i>
+          <input type="text" id="modal-search" placeholder="Cari di popup ini...">
+        </div>
+        <div id="modal-count-badge" class="badge">0 WO</div>
+      </div>
+
+      <!-- Container Kartu Detail (Kanban Style) -->
+      <div class="modal-body">
+        <div class="kanban-board-cards" id="kanban-cards-container">
+          <!-- Kartu detail WO akan di-render dari JS di sini -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Memuat Script Utama -->
+  <script src="app.js"></script>
+</body>
+</html>
