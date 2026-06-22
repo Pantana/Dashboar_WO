@@ -1,29 +1,45 @@
-# Hasil Pekerjaan: Sinkronisasi Statistik & Pembuatan Leaderboard Tim
+# Walkthrough: Perbaikan Tampilan Mobile UI (Pivot Table & Kanban Modal)
 
-Saya telah melakukan pembaruan lengkap berdasarkan permintaan Anda:
-
-1. **Sinkronisasi Data**: Data statistik di sidebar kini disinkronkan dengan data Grouping di tabel pivot secara presisi (sehingga jumlah data **Terpasang** di statistik dan pivot sama-sama bernilai **5** pada data simulasi, dan bernilai **11** pada spreadsheet Anda).
-2. **Kategori Statistik Baru**: Mengubah panel statistik di sidebar untuk menampilkan 6 kategori grouping dan status khusus:
-   - **OGP**
-   - **Terpasang**
-   - **Kd. Pelanggan**
-   - **Kd. Teknis**
-   - **Kd. Lainnya**
-   - **Complete PS**
-3. **Leaderboard Tim**: Menambahkan leaderboard interaktif di bawah panel statistik yang menampilkan daftar nama teknisi diurutkan berdasarkan jumlah **`COMPLETE PS`** terbanyak mereka secara dinamis.
+Kami telah meningkatkan kualitas visual dan responsivitas halaman pada tampilan mobile sehingga seluruh kolom pivot table dapat terlihat penuh tanpa perlu mengaktifkan setelan browser "Desktop Mode".
 
 ---
 
-## Demonstrasi Tampilan
+## Ringkasan Perubahan
 
-### 1. Tampilan Dashboard Baru dengan Statistik Lengkap & Leaderboard Tim
-Pada gambar di bawah ini, Anda dapat melihat grid statistik baru berisi 7 kotak data serta widget **Leaderboard Tim** (menampilkan peringkat 1 sampai 5 besar teknisi) dengan lencana medali emas, perak, dan perunggu.
+### 1. Modifikasi Logika Header [app.js](file:///c:/Users/panta/OneDrive/Documents/Dashboar_WO/app.js)
+* Menambahkan mapping label kolom versi singkat (`shortColNames`) untuk mobile:
+  * `"KENDALA PELANGGAN"` &rarr; `"K. Pel"`
+  * `"KENDALA TEKNIS"` &rarr; `"K. Tek"`
+  * `"TERPASANG"` &rarr; `"Tps"`
+  * `"COMPLETE PS"` &rarr; `"Comp"`
+* Membungkus setiap judul kolom dengan tag `<span class="txt-full">` (untuk desktop) dan `<span class="txt-short">` (untuk mobile) agar teks header secara otomatis menyesuaikan ukuran layar.
 
-![Dashboard Baru](file:///C:/Users/panta/.gemini/antigravity-ide/brain/01807dd6-1eb6-4216-bf04-f4b036520224/dashboard_verification_1782053331671.png)
+### 2. Peningkatan Gaya CSS Responsif [style.css](file:///c:/Users/panta/OneDrive/Documents/Dashboar_WO/style.css)
+* Menambahkan kelas utility `.txt-full` dan `.txt-short` untuk mengontrol visibilitas label teks secara responsif.
+* Memperbarui media query `@media (max-width: 900px)` dengan optimasi khusus:
+  * **Ukuran Kontainer & Padding**: Mengurangi padding `.main-content` dan `.card` agar menyisakan ruang horizontal lebih luas untuk tabel.
+  * **Lebar Kolom Teknisi**: Menyetel lebar kolom `Nama Teknisi` menjadi dinamis (`85px` - `95px`), memaksa pembungkusan kata (`word-break: break-word`), sehingga kolom tidak memakan terlalu banyak ruang.
+  * **Bungkus Teks Kolom & Padding**: Mengurangi padding sel tabel menjadi `8px 4px` dan mengaktifkan pembungkusan teks (`white-space: normal`) pada header dan sel agar kolom dapat menyempit dengan aman.
+  * **Badge Angka Ringkas**: Mengubah ukuran badge sel pivot menjadi `24px x 24px` untuk menghemat ruang.
+  * **Modal Detail Kanban**: Menyesuaikan modal agar berukuran penuh dengan margin minimal (`8px`) pada layar mobile. Kartu-kartu Kanban kini otomatis ditumpuk dalam 1 kolom vertikal yang pas dan nyaman dibaca.
 
 ---
 
-## Berkas yang Diperbarui:
-* **[index.html](file:///c:/Users/panta/OneDrive/Documents/Dashboar_WO/index.html)**: Diperbarui untuk mendefinisikan layout statistik 7 kolom (Total WO + 6 status) dan kontainer elemen Leaderboard.
-* **[style.css](file:///c:/Users/panta/OneDrive/Documents/Dashboar_WO/style.css)**: Ditambahkan style grid layout modern responsif untuk stats dan leaderboard dengan sentuhan efek transisi hover serta medali berwarna premium.
-* **[app.js](file:///c:/Users/panta/OneDrive/Documents/Dashboar_WO/app.js)**: Logika statistik baru berdasarkan pemetaan Grouping dan fungsi `updateLeaderboard()` untuk menghitung dan merangking teknisi berdasarkan status `COMPLETE PS`.
+## Hasil Pengujian & Bukti Visual
+
+Pengujian dilakukan menggunakan browser subagent dengan mensimulasikan ukuran layar mobile (lebar ~390px - 500px). Hasilnya menunjukkan pivot table terpasang pas pada layar tanpa adanya scrollbar horizontal, dan Kanban Board tampil bersih dan modern.
+
+### 1. Tampilan Dashboard & Pivot Table Mobile
+Seluruh kolom tabel (Teknisi, OGP, K. Pel, K. Tek, Tps, Comp, Total) terlihat jelas dalam satu layar.
+
+![Tampilan Pivot Table Mobile](file:///C:/Users/panta/.gemini/antigravity-ide/brain/f4da360d-0e6d-4d92-b51c-70837ae30bd8/pivot_table_mobile_1782138347259.png)
+
+### 2. Tampilan Kanban Modal Detail Pekerjaan (Pop-up)
+Pop-up detail pas di layar, memiliki search bar yang responsif, dan opsi dropdown Status/Teknisi tersusun rapi.
+
+![Tampilan Kanban Modal Mobile](file:///C:/Users/panta/.gemini/antigravity-ide/brain/f4da360d-0e6d-4d92-b51c-70837ae30bd8/modal_mobile_open_1782138400301.png)
+
+### 3. Rekaman Sesi Uji Coba Browser
+Sesi interaksi mobile layout diuji secara otomatis dan direkam dalam format video di bawah ini:
+
+![Rekaman Sesi Uji Coba](file:///C:/Users/panta/.gemini/antigravity-ide/brain/f4da360d-0e6d-4d92-b51c-70837ae30bd8/mobile_ui_verification_1782138236435.webp)

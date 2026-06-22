@@ -709,14 +709,36 @@ function renderPivotTable() {
   });
 
   // 3. Bangun Header Tabel
+  const shortColNames = {
+    "KENDALA PELANGGAN": "K. Pel",
+    "KENDALA TEKNIS": "K. Tek",
+    "TERPASANG": "Tps",
+    "COMPLETE PS": "Comp"
+  };
+
   let headerHtml = `
     <tr>
-      <th class="th-technician">Nama Teknisi</th>
+      <th class="th-technician">
+        <span class="txt-full">Nama Teknisi</span>
+        <span class="txt-short">Teknisi</span>
+      </th>
   `;
   listColumns.forEach(col => {
-    headerHtml += `<th>${col}</th>`;
+    const shortCol = shortColNames[col] || col;
+    headerHtml += `
+      <th title="${col}">
+        <span class="txt-full">${col}</span>
+        <span class="txt-short">${shortCol}</span>
+      </th>
+    `;
   });
-  headerHtml += `<th>Total Tugas</th></tr>`;
+  headerHtml += `
+      <th>
+        <span class="txt-full">Total Tugas</span>
+        <span class="txt-short">Total</span>
+      </th>
+    </tr>
+  `;
   DOM.pivotTable.querySelector('thead').innerHTML = headerHtml;
 
   // 4. Bangun Baris Tabel (Data & Angka)
