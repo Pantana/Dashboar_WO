@@ -64,6 +64,7 @@ const APP_CONFIG = {
       "WONUM": "WO056842107",
       "DATEL": "SKAWANG",
       "STO": "SMB",
+      "AO": "DGPS260619215325551203343-AOi426061909532595040d790_83914537-623791440~2026061922041338101321~38101321~127215365~3~WSA",
       "PAKET": "Double Speed - 100 Mbps Internet + TV",
       "ALPRO": "ODP-SMB-FM/026",
       "INET_NUMBER": "162610307955",
@@ -79,6 +80,7 @@ const APP_CONFIG = {
       "WONUM": "WO056962226",
       "DATEL": "SKAWANG",
       "STO": "SMB",
+      "AO": "XM46T8H2LGCJA8D1CL6N5LH1H-AOk4260622114833647e34900_86266465-638262671~2026062211502838353931~38353931~128016485~3~WSA",
       "PAKET": "75 Mbps Internet",
       "ALPRO": "ODP-SMB-FH/032",
       "INET_NUMBER": "162610308094",
@@ -94,6 +96,7 @@ const APP_CONFIG = {
       "WONUM": "WO056758694",
       "DATEL": "SKAWANG",
       "STO": "SMB",
+      "AO": "DGPS260622131950754530222-AOi4260622011950971ffca20_86298953-638478117~2026062213224638365561~38365561~128055286~3~WSA",
       "PAKET": "EZnet 20 Mbps",
       "ALPRO": "ODP-SMB-FH/071",
       "INET_NUMBER": "162610307941",
@@ -109,6 +112,7 @@ const APP_CONFIG = {
       "WONUM": "WO056930249",
       "DATEL": "SKAWANG",
       "STO": "SNW",
+      "AO": "DGPS260619215325551203343-AOi426061909532595040d790_83914537-623791440~2026061922041338101321~38101321~127215365~3~WSA",
       "PAKET": "One Dynamic 20Mbps+15GB",
       "ALPRO": "ODP-SNW-FAD/047",
       "INET_NUMBER": "162615301023",
@@ -124,6 +128,7 @@ const APP_CONFIG = {
       "WONUM": "WO056918634",
       "DATEL": "SKAWANG",
       "STO": "SNW",
+      "AO": "XM46T8H2LGCJA8D1CL6N5LH1H-AOk4260622114833647e34900_86266465-638262671~2026062211502838353931~38353931~128016485~3~WSA",
       "PAKET": "50 Mbps Internet",
       "ALPRO": "ODP-SNW-FP/105",
       "INET_NUMBER": "162615227774",
@@ -139,6 +144,7 @@ const APP_CONFIG = {
       "WONUM": "WO056999794",
       "DATEL": "SKAWANG",
       "STO": "SNW",
+      "AO": "DGPS260622131950754530222-AOi4260622011950971ffca20_86298953-638478117~2026062213224638365561~38365561~128055286~3~WSA",
       "PAKET": "Dynamic 50 Mbps 15 GB",
       "ALPRO": "ODP-SNW-FZ/031",
       "INET_NUMBER": "162615301027",
@@ -154,6 +160,7 @@ const APP_CONFIG = {
       "WONUM": "WO056991729",
       "DATEL": "SKAWANG",
       "STO": "SNW",
+      "AO": "DGPS260619215325551203343-AOi426061909532595040d790_83914537-623791440~2026061922041338101321~38101321~127215365~3~WSA",
       "PAKET": "One Dynamic 20Mbps+30GB",
       "ALPRO": "ODP-SNW-FN/038",
       "INET_NUMBER": "162615227904",
@@ -169,6 +176,7 @@ const APP_CONFIG = {
       "WONUM": "WO056929409",
       "DATEL": "SKAWANG",
       "STO": "SNW",
+      "AO": "XM46T8H2LGCJA8D1CL6N5LH1H-AOk4260622114833647e34900_86266465-638262671~2026062211502838353931~38353931~128016485~3~WSA",
       "PAKET": "100 Mbps Internet",
       "ALPRO": "ODP-SNW-FY/043",
       "INET_NUMBER": "162615301024",
@@ -184,6 +192,7 @@ const APP_CONFIG = {
       "WONUM": "WO056952120",
       "DATEL": "SKAWANG",
       "STO": "SNW",
+      "AO": "DGPS260622131950754530222-AOi4260622011950971ffca20_86298953-638478117~2026062213224638365561~38365561~128055286~3~WSA",
       "PAKET": "50 Mbps Internet",
       "ALPRO": "ODP-SNW-FU/177",
       "INET_NUMBER": "162615227896",
@@ -199,6 +208,7 @@ const APP_CONFIG = {
       "WONUM": "WO056202070",
       "DATEL": "SKAWANG",
       "STO": "BKY",
+      "AO": "DGPS260619215325551203343-AOi426061909532595040d790_83914537-623791440~2026061922041338101321~38101321~127215365~3~WSA",
       "PAKET": "150 Mbps Internet",
       "ALPRO": "ODP-BKY-FD/025",
       "INET_NUMBER": "162608905996",
@@ -214,6 +224,7 @@ const APP_CONFIG = {
       "WONUM": "WO055475725",
       "DATEL": "SKAWANG",
       "STO": "BKY",
+      "AO": "XM46T8H2LGCJA8D1CL6N5LH1H-AOk4260622114833647e34900_86266465-638262671~2026062211502838353931~38353931~128016485~3~WSA",
       "PAKET": "50 Mbps Internet",
       "ALPRO": "ODP-BKY-FF/003",
       "INET_NUMBER": "162608905967",
@@ -229,6 +240,7 @@ const APP_CONFIG = {
       "WONUM": "WO056858931",
       "DATEL": "SKAWANG",
       "STO": "PMK",
+      "AO": "DGPS260622131950754530222-AOi4260622011950971ffca20_86298953-638478117~2026062213224638365561~38365561~128055286~3~WSA",
       "PAKET": "EZnet 20 Mbps",
       "ALPRO": "ODP-PMK-FD/083",
       "INET_NUMBER": "162609206831",
@@ -244,6 +256,7 @@ const APP_CONFIG = {
       "WONUM": "WO056668422",
       "DATEL": "SKAWANG",
       "STO": "SNW",
+      "AO": "DGPS260619215325551203343-AOi426061909532595040d790_83914537-623791440~2026061922041338101321~38101321~127215365~3~WSA",
       "PAKET": "EZnet 20 Mbps",
       "ALPRO": "ODP-SNW-FT/025",
       "INET_NUMBER": "162615227744",
@@ -259,6 +272,7 @@ const APP_CONFIG = {
       "WONUM": "WO056903160",
       "DATEL": "SKAWANG",
       "STO": "SNW",
+      "AO": "XM46T8H2LGCJA8D1CL6N5LH1H-AOk4260622114833647e34900_86266465-638262671~2026062211502838353931~38353931~128016485~3~WSA",
       "PAKET": "Double Speed - 200 Mbps",
       "ALPRO": "ODP-SNW-FV/092",
       "INET_NUMBER": "162615301020",
@@ -274,6 +288,7 @@ const APP_CONFIG = {
       "WONUM": "WO056898871",
       "DATEL": "SKAWANG",
       "STO": "BKY",
+      "AO": "DGPS260622131950754530222-AOi4260622011950971ffca20_86298953-638478117~2026062213224638365561~38365561~128055286~3~WSA",
       "PAKET": "Lebih Hemat - 50 Mbps",
       "ALPRO": "ODP-BKY-FC/090",
       "INET_NUMBER": "162608902626",
@@ -303,7 +318,8 @@ let appState = {
     status: "",          // Filter status khusus untuk COMPLETE PS
     technician: ""       // Filter teknisi untuk popup detail
   },
-  isModalLocked: false   // Status apakah modal popup terkunci (tidak tutup saat klik luar)
+  isModalLocked: false,  // Status apakah modal popup terkunci (tidak tutup saat klik luar)
+  currentModalTasks: []  // Data WO yang sedang ditampilkan di modal aktif (untuk fitur Salin Semua)
 };
 
 // Element selector (Penghubung elemen HTML)
@@ -341,6 +357,7 @@ const DOM = {
   modalSubtitle: document.getElementById('modal-subtitle'),
   modalSearch: document.getElementById('modal-search'),
   modalCountBadge: document.getElementById('modal-count-badge'),
+  modalCopyAllBtn: document.getElementById('modal-copy-all-btn'),
   kanbanCardsContainer: document.getElementById('kanban-cards-container'),
   modalLockBtn: document.getElementById('modal-lock-btn'),
   lockIcon: document.getElementById('lock-icon'),
@@ -468,6 +485,11 @@ function setupEventListeners() {
     renderKanbanCards();
   });
 
+  // Tombol Salin Semua Data di Modal
+  DOM.modalCopyAllBtn.addEventListener('click', () => {
+    copyAllModalTasks();
+  });
+
   // Tombol Tutup Modal
   DOM.modalCloseBtn.addEventListener('click', closeModal);
   
@@ -506,7 +528,14 @@ function fetchData() {
       // Ambil dari localStorage jika sebelumnya ada perubahan, jika kosong gunakan bawaan
       const lokalTasks = localStorage.getItem('mock_tasks');
       if (lokalTasks) {
-        appState.tasks = JSON.parse(lokalTasks);
+        const parsed = JSON.parse(lokalTasks);
+        // Jika data lama di cache tidak memiliki kolom AO, reset cache agar menggunakan mock data baru yang lengkap
+        if (parsed.length > 0 && !parsed[0].hasOwnProperty('AO')) {
+          appState.tasks = [...APP_CONFIG.mockDataAwal];
+          localStorage.setItem('mock_tasks', JSON.stringify(appState.tasks));
+        } else {
+          appState.tasks = parsed;
+        }
       } else {
         appState.tasks = [...APP_CONFIG.mockDataAwal];
         localStorage.setItem('mock_tasks', JSON.stringify(appState.tasks));
@@ -999,6 +1028,7 @@ function renderKanbanCards() {
   
   // Update badge jumlah WO di modal
   DOM.modalCountBadge.textContent = `${matchedTasks.length} WO`;
+  appState.currentModalTasks = matchedTasks;
   
   // 3. Render HTML Kartu
   if (matchedTasks.length === 0) {
@@ -1071,7 +1101,12 @@ function renderKanbanCards() {
         </div>
 
         <div class="card-header-info">
-          <span class="wo-number">${task.WONUM}</span>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="wo-number">${task.WONUM}</span>
+            <button class="btn-icon-xs btn-copy-card" onclick="copyIndividualTask('${task.WONUM}')" title="Salin Data WO">
+              <i data-lucide="copy" style="width: 11px; height: 11px;"></i>
+            </button>
+          </div>
           <span class="badge">${task.STO || "STO"}</span>
         </div>
 
@@ -1264,3 +1299,61 @@ function formatPhoneNumber(phone) {
   }
   return cleaned;
 }
+
+// Memformat data WO ke format string tab-separated (\t)
+function getTaskCopyString(task) {
+  const fields = [
+    task.WONUM || "",
+    task.DATEL || "",
+    task.STO || "",
+    task.AO || "",
+    task.PAKET || "",
+    task.ALPRO || "",
+    task.INET_NUMBER || "",
+    task.CUST_NAME || "",
+    task.KONTAK || "",
+    task.ALAMAT || ""
+  ];
+  return fields.join("\t");
+}
+
+// Fitur Salin Semua Data yang aktif di Modal
+window.copyAllModalTasks = function() {
+  if (!appState.currentModalTasks || appState.currentModalTasks.length === 0) {
+    showAlert("Tidak ada data WO untuk disalin.", "error");
+    return;
+  }
+  
+  const copyText = appState.currentModalTasks
+    .map((task, index) => `${index + 1}. ${getTaskCopyString(task)}`)
+    .join("\n\n");
+    
+  navigator.clipboard.writeText(copyText)
+    .then(() => {
+      showAlert(`Berhasil menyalin ${appState.currentModalTasks.length} data WO ke clipboard!`, "success");
+    })
+    .catch(err => {
+      console.error("Gagal menyalin: ", err);
+      showAlert("Gagal menyalin data ke clipboard.", "error");
+    });
+};
+
+// Fitur Salin Satu Data WO dari kartu Kanban (tanpa nomor urut)
+window.copyIndividualTask = function(wonum) {
+  const task = appState.tasks.find(t => t.WONUM === wonum);
+  if (!task) {
+    showAlert("Data WO tidak ditemukan.", "error");
+    return;
+  }
+  
+  const copyText = getTaskCopyString(task);
+  
+  navigator.clipboard.writeText(copyText)
+    .then(() => {
+      showAlert(`Data WO ${wonum} berhasil disalin ke clipboard!`, "success");
+    })
+    .catch(err => {
+      console.error("Gagal menyalin: ", err);
+      showAlert("Gagal menyalin data ke clipboard.", "error");
+    });
+};
