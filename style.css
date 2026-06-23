@@ -628,6 +628,246 @@ input:checked + .slider:before {
 .light-theme .moon-icon { display: none; }
 
 /* ==========================================================================
+   SCOREBOARD COMPONENT
+   ========================================================================== */
+.scoreboard-section {
+  background: linear-gradient(135deg, var(--bg-secondary), rgba(99, 102, 241, 0.05));
+  border-color: rgba(99, 102, 241, 0.2);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scoreboard-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-success), var(--accent-color), var(--color-info));
+}
+
+.scoreboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.scoreboard-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scoreboard-title-icon {
+  stroke: var(--accent-color);
+  stroke-width: 2px;
+}
+
+.scoreboard-section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.scoreboard-live-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-success);
+  background-color: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  animation: blink 1.5s infinite alternate;
+}
+
+.scoreboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.scoreboard-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.25s var(--transition-bounce), box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.scoreboard-card::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%);
+  top: -75px;
+  right: -75px;
+  pointer-events: none;
+}
+
+.scoreboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--text-muted);
+}
+
+.score-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-tertiary);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.scoreboard-card:hover .score-card-icon {
+  transform: scale(1.1);
+}
+
+.score-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.score-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.score-value {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+/* Digital scoreboard specific colors and glows */
+.score-re .score-card-icon {
+  background-color: rgba(14, 165, 233, 0.1);
+  color: var(--color-info);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.score-re-input {
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-info);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
+}
+
+.score-re-input:focus {
+  outline: none;
+  background-color: rgba(14, 165, 233, 0.05);
+  border-radius: var(--radius-sm);
+}
+
+.score-re-input::-webkit-outer-spin-button,
+.score-re-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.score-re-input {
+  -moz-appearance: textfield;
+}
+
+.score-ps .score-card-icon {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.score-ps .score-value {
+  color: var(--color-success);
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.score-ratio .score-card-icon {
+  background-color: rgba(99, 102, 241, 0.1);
+  color: var(--accent-color);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.score-ratio .score-value {
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+/* Dynamic glow colors based on achievement levels */
+.score-ratio.low-achievement .score-value {
+  color: var(--color-danger);
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+.score-ratio.low-achievement .score-card-icon {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-danger);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.score-ratio.mid-achievement .score-value {
+  color: var(--color-warning);
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+.score-ratio.mid-achievement .score-card-icon {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--color-warning);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.score-ratio.high-achievement .score-value {
+  color: var(--color-success);
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+.score-ratio.high-achievement .score-card-icon {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+@media (max-width: 768px) {
+  .scoreboard-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .scoreboard-section {
+    padding: 16px;
+  }
+  
+  .score-value, .score-re-input {
+    font-size: 1.8rem;
+  }
+}
+
+/* ==========================================================================
    PIVOT TABLE SECTION
    ========================================================================== */
 .pivot-section {

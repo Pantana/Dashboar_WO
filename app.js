@@ -313,6 +313,7 @@ let appState = {
   tasks: [],             // Data seluruh tugas/WO
   isDemoMode: true,      // Apakah sedang menggunakan data simulasi lokal
   webAppUrl: "",         // URL Google Sheets Apps Script Web App
+  reTarget: 10,          // Target RE (input manual)
   activeFilter: {
     grouping: "",        // Filter grouping untuk popup detail
     status: "",          // Filter status khusus untuk COMPLETE PS
@@ -417,6 +418,14 @@ function initSettings() {
   
   appState.webAppUrl = savedUrl;
   DOM.webAppUrlInput.value = savedUrl;
+
+  // Load Target RE
+  const savedRe = localStorage.getItem('reTarget');
+  appState.reTarget = savedRe ? parseInt(savedRe, 10) : 10;
+  const reInput = document.getElementById('score-re-input');
+  if (reInput) {
+    reInput.value = appState.reTarget;
+  }
 }
 
 /**
@@ -508,6 +517,31 @@ function setupEventListeners() {
       closeModal();
     }
   });
+
+  // Sensor perubahan input Target RE di Scoreboard
+  const reInput = document.getElementById('score-re-input');
+  if (reInput) {
+    reInput.addEventListener('input', (e) => {
+      let val = parseInt(e.target.value, 10);
+      if (isNaN(val) || val < 0) {
+        val = 0;
+      }
+      appState.reTarget = val;
+      localStorage.setItem('reTarget', val);
+      updateScoreboard();
+    });
+
+    reInput.addEventListener('blur', (e) => {
+      let val = parseInt(e.target.value, 10);
+      if (isNaN(val) || val <= 0) {
+        val = 1; // Minimal target 1 agar tidak pembagian nol saat diketik kosong
+        e.target.value = val;
+        appState.reTarget = val;
+        localStorage.setItem('reTarget', val);
+        updateScoreboard();
+      }
+    });
+  }
 }
 
 /**
@@ -883,6 +917,9 @@ function updateStatistics() {
   
   // Perbarui Leaderboard Tim
   updateLeaderboard(filtered);
+  
+  // Perbarui Scoreboard PS/RE
+  updateScoreboard();
 }
 
 // Memperbarui Leaderboard Tim di Sidebar
@@ -933,6 +970,50 @@ function updateLastUpdatedTime() {
   const now = new Date();
   const timeString = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   DOM.dataUpdatedTime.textContent = `Terakhir diperbarui: Hari ini, ${timeString}`;
+}
+
+// Memperbarui data dan persentase di Scoreboard Pencapaian
+function updateScoreboard() {
+  // Hitung jumlah PS (Complete PS) dari data tasks yang ada di sheet/memori (seluruhnya, bukan terfilter)
+  const totalPS = appState.tasks.filter(task => {
+    const status = (task.STATUS || "").toUpperCase().trim();
+    return status === "COMPLETE PS";
+  }).length;
+
+  const psValueEl = document.getElementById('score-ps-value');
+  const ratioValueEl = document.getElementById('score-ratio-value');
+  const ratioCardEl = document.querySelector('.score-ratio');
+
+  if (psValueEl) {
+    psValueEl.textContent = totalPS;
+  }
+
+  const reTarget = appState.reTarget || 0;
+  let ratioText = "0.0%";
+  let achievementLevel = "low-achievement";
+
+  if (reTarget > 0) {
+    const ratio = (totalPS / reTarget) * 100;
+    ratioText = `${ratio.toFixed(1)}%`;
+    
+    if (ratio >= 100) {
+      achievementLevel = "high-achievement";
+    } else if (ratio >= 50) {
+      achievementLevel = "mid-achievement";
+    } else {
+      achievementLevel = "low-achievement";
+    }
+  } else {
+    ratioText = "N/A";
+  }
+
+  if (ratioValueEl) {
+    ratioValueEl.textContent = ratioText;
+  }
+
+  if (ratioCardEl) {
+    ratioCardEl.className = "scoreboard-card score-ratio " + achievementLevel;
+  }
 }
 
 /**

@@ -145,6 +145,53 @@
 
       <div id="alert-container" class="alert-container"></div>
 
+      <!-- SCOREBOARD SECTION -->
+      <section class="scoreboard-section card">
+        <div class="scoreboard-header">
+          <div class="scoreboard-title-group">
+            <i data-lucide="trophy" class="scoreboard-title-icon text-warning"></i>
+            <h2>Scoreboard Pencapaian PS / RE</h2>
+          </div>
+          <span class="badge scoreboard-live-badge">Live Monitor</span>
+        </div>
+        <div class="scoreboard-grid">
+          <!-- Kolom 1: RE (Target RE - Input Manual) -->
+          <div class="scoreboard-card score-re">
+            <div class="score-card-icon">
+              <i data-lucide="target"></i>
+            </div>
+            <div class="score-card-content">
+              <span class="score-label">TARGET RE (INPUT)</span>
+              <div class="score-input-container">
+                <input type="number" id="score-re-input" class="score-re-input" min="1" value="10" placeholder="Target">
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom 2: PS (Realisasi Complete PS dari Sheet) -->
+          <div class="scoreboard-card score-ps">
+            <div class="score-card-icon">
+              <i data-lucide="check-circle-2"></i>
+            </div>
+            <div class="score-card-content">
+              <span class="score-label">REALISASI PS (SHEET)</span>
+              <span class="score-value" id="score-ps-value">0</span>
+            </div>
+          </div>
+
+          <!-- Kolom 3: PS/RE (Persentase Pencapaian) -->
+          <div class="scoreboard-card score-ratio">
+            <div class="score-card-icon">
+              <i data-lucide="percent"></i>
+            </div>
+            <div class="score-card-content">
+              <span class="score-label">PENCAPAIAN (PS/RE)</span>
+              <span class="score-value" id="score-ratio-value">0.0%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- MAIN CONTAINER: Pivot Progress Table -->
       <section class="dashboard-section card pivot-section">
         <div class="section-header">
