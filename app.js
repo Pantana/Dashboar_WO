@@ -814,9 +814,10 @@ function renderPivotTable() {
     // Hitung total tugas aktual teknisi ini (tanpa double counting Complete PS)
     const rowTotal = filteredTasks.filter(t => (t.Teknisi || "").trim() === teknisi).length;
     
+    const displayName = teknisi.includes(" - ") ? teknisi.replace(" - ", " -<br>") : teknisi;
     let rowHtml = `
       <tr>
-        <td class="td-technician">${teknisi}</td>
+        <td class="td-technician">${displayName}</td>
     `;
     
     listColumns.forEach(col => {
