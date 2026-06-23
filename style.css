@@ -479,12 +479,10 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-height: 100vh;
-  overflow-y: auto;
 }
 
 .main-content > * {
-  flex-shrink: 0;
+  flex-shrink: 0 !important;
 }
 
 .main-header {
@@ -640,6 +638,8 @@ input:checked + .slider:before {
   padding: 24px;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0 !important;
+  min-height: 160px;
 }
 
 .scoreboard-section::before {
@@ -878,6 +878,7 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex-shrink: 0 !important;
 }
 
 .section-header {
