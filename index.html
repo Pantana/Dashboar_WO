@@ -12,6 +12,12 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Menghubungkan File Stylesheet -->
   <link rel="stylesheet" href="style.css?v=2.0">
+  <!-- PWA Manifest & Mobile Styling -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#040810">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body class="dark-theme"> <!-- Secara default menggunakan tema gelap (Premium Slate Dark) -->
 
@@ -272,5 +278,15 @@
 
   <!-- Memuat Script Utama -->
   <script src="app.js?v=2.0"></script>
+  <!-- Register Service Worker untuk PWA -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => console.log('Service Worker terdaftar!', reg.scope))
+          .catch((err) => console.log('Gagal mendaftarkan Service Worker:', err));
+      });
+    }
+  </script>
 </body>
 </html>
