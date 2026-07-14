@@ -28,52 +28,106 @@
    THEME 1: DARK THEME (Tema Gelap Premium - Default)
    ========================================================================== */
 .dark-theme {
-  --bg-primary: #0f172a;      /* Slate 900 */
-  --bg-secondary: #1e293b;    /* Slate 800 */
-  --bg-tertiary: #334155;     /* Slate 700 */
-  --border-color: #334155;    /* Slate 700 */
-  --text-primary: #f8fafc;    /* Slate 50 */
-  --text-secondary: #94a3b8;  /* Slate 400 */
-  --text-muted: #64748b;      /* Slate 500 */
+  --bg-primary: #040810;      /* Deep Blue-Black */
+  --bg-secondary: #0b111e;    /* Slightly lighter blue-black for cards */
+  --bg-tertiary: #121a2c;     /* Raised elements */
+  --border-color: #1b253b;    /* Dark blue border */
+  --text-primary: #FBFFFF;    /* Neon White */
+  --text-secondary: #a0aec0;  /* Soft gray */
+  --text-muted: #64748b;      /* Muted slate */
   
-  /* Aksen Utama */
-  --accent-color: #6366f1;    /* Indigo 500 */
-  --accent-glow: rgba(99, 102, 241, 0.15);
+  /* Scrollbar Colors */
+  --scrollbar-track: rgba(4, 8, 16, 0.4);
+  --scrollbar-thumb: rgba(57, 255, 20, 0.2);
+  --scrollbar-thumb-hover: rgba(57, 255, 20, 0.75);
+  
+  /* Aksen Utama (UI Utama / TERPASANG) */
+  --accent-color: #39ff14;    /* Neon Green */
+  --accent-glow: rgba(57, 255, 20, 0.15);
 
-  /* Status Colors */
-  --color-success: #10b981;   /* Emerald 500 (Terpasang / Complete) */
-  --color-warning: #f59e0b;   /* Amber 500 (Progres) */
-  --color-danger: #ef4444;    /* Red 500 (Pending / Kendala) */
-  --color-info: #0ea5e9;      /* Sky 500 (Antrian / OGP) */
+  /* Status Colors & Custom Columns */
+  --color-success: #39ff14;   /* Neon Green */
+  --color-warning: #F72119;   /* Neon Red (Kendala) */
+  --color-danger: #F72119;    /* Neon Red (Kendala) */
+  --color-info: #D3D3D3;      /* Neon Light Grey (OGP) */
+  --color-grand-total: #4BF0FC; /* Neon Cyan (Grand Total) */
+  --color-teknisi: #FBFFFF;   /* Neon White */
+
+  /* Contrast Badge Text (Dark Theme is same as status colors) */
+  --color-success-text: #39ff14;
+  --color-danger-text: #F72119;
+  --color-info-text: #D3D3D3;
+  --color-grand-total-text: #4BF0FC;
   
-  --card-overlay: rgba(30, 41, 59, 0.7);
-  --modal-backdrop: rgba(15, 23, 42, 0.8);
+  /* Badge Glow Helpers */
+  --color-success-bg: rgba(57, 255, 20, 0.12);
+  --color-success-glow: rgba(57, 255, 20, 0.35);
+  --color-success-glow-hover: rgba(57, 255, 20, 0.7);
+  --color-danger-bg: rgba(247, 33, 25, 0.12);
+  --color-danger-glow: rgba(247, 33, 25, 0.35);
+  --color-danger-glow-hover: rgba(247, 33, 25, 0.7);
+  --color-ogp-bg: rgba(211, 211, 211, 0.12);
+  --color-ogp-glow: rgba(211, 211, 211, 0.25);
+  --color-ogp-glow-hover: rgba(211, 211, 211, 0.6);
+  --color-grand-total-bg: rgba(75, 240, 252, 0.15);
+  --color-grand-total-glow: rgba(75, 240, 252, 0.35);
+  --color-grand-total-glow-hover: rgba(75, 240, 252, 0.7);
+
+  --card-overlay: rgba(11, 17, 30, 0.85);
+  --modal-backdrop: rgba(4, 8, 16, 0.85);
 }
 
 /* ==========================================================================
-   THEME 2: LIGHT THEME (Tema Terang Bersih & Modern)
+   THEME 2: LIGHT THEME (Tema Terang Sweet Candy yang Cantik, Manis, & Kontras)
    ========================================================================== */
 .light-theme {
-  --bg-primary: #f8fafc;      /* Slate 50 */
-  --bg-secondary: #ffffff;    /* Putih */
-  --bg-tertiary: #f1f5f9;     /* Slate 100 */
-  --border-color: #e2e8f0;    /* Slate 200 */
-  --text-primary: #0f172a;    /* Slate 900 */
-  --text-secondary: #475569;  /* Slate 600 */
-  --text-muted: #94a3b8;      /* Slate 400 */
+  --bg-primary: #F8F8FF;      /* Ghost White */
+  --bg-secondary: #FFFFFF;    /* Pure White for cards & sidebar */
+  --bg-tertiary: #F0F0FA;     /* Soft lavender candy tint */
+  --border-color: #d4d4f7;    /* Slightly darker soft lavender border for clear grid captures */
+  --text-primary: #36454F;    /* Charcoal */
+  --text-secondary: #3f4e5e;  /* Saturated slate-grey (increased contrast) */
+  --text-muted: #687c90;      /* Darker grey (increased contrast) */
   
-  /* Aksen Utama */
-  --accent-color: #4f46e5;    /* Indigo 600 */
-  --accent-glow: rgba(79, 70, 229, 0.1);
+  /* Scrollbar Colors */
+  --scrollbar-track: rgba(248, 248, 255, 0.4);
+  --scrollbar-thumb: rgba(150, 221, 153, 0.35);
+  --scrollbar-thumb-hover: rgba(150, 221, 153, 0.9);
 
-  /* Status Colors */
-  --color-success: #10b981;
-  --color-warning: #d97706;   /* Amber 600 */
-  --color-danger: #dc2626;    /* Red 600 */
-  --color-info: #0284c7;      /* Sky 600 */
+  /* Aksen Utama (UI Utama / TERPASANG) */
+  --accent-color: #96DD99;    /* Pastel Green */
+  --accent-glow: rgba(150, 221, 153, 0.2);
+
+  /* Status Colors & Custom Columns */
+  --color-success: #96DD99;   /* Pastel Green (Border/Accent) */
+  --color-warning: #FFA0F8;   /* Cotton Candy Pink (Border/Accent) */
+  --color-danger: #FFA0F8;    /* Cotton Candy Pink (Border/Accent) */
+  --color-info: #2B3856;      /* Biru tua keabu-abuan pekat (OGP) */
+  --color-grand-total: #AEE4FF; /* Baby Blue (Border/Accent) */
+  --color-teknisi: #36454F;   /* Charcoal */
+
+  /* High Contrast Badge Text (Crucial for Light Backgrounds) */
+  --color-success-text: #0e4f16;       /* Deep Saturated Forest Green */
+  --color-danger-text: #7c0b74;        /* Deep Candy Plum/Magenta */
+  --color-info-text: #152238;          /* Extremely Deep Navy Blue */
+  --color-grand-total-text: #05408c;   /* Deep Blue */
   
+  /* Badge Glow Helpers */
+  --color-success-bg: rgba(150, 221, 153, 0.3);
+  --color-success-glow: rgba(150, 221, 153, 0.4);
+  --color-success-glow-hover: rgba(150, 221, 153, 0.7);
+  --color-danger-bg: rgba(255, 160, 248, 0.3);
+  --color-danger-glow: rgba(255, 160, 248, 0.4);
+  --color-danger-glow-hover: rgba(255, 160, 248, 0.7);
+  --color-ogp-bg: rgba(43, 56, 86, 0.15);
+  --color-ogp-glow: rgba(43, 56, 86, 0.3);
+  --color-ogp-glow-hover: rgba(43, 56, 86, 0.6);
+  --color-grand-total-bg: rgba(174, 228, 255, 0.35);
+  --color-grand-total-glow: rgba(174, 228, 255, 0.5);
+  --color-grand-total-glow-hover: rgba(174, 228, 255, 0.9);
+
   --card-overlay: rgba(255, 255, 255, 0.85);
-  --modal-backdrop: rgba(15, 23, 42, 0.4);
+  --modal-backdrop: rgba(54, 69, 79, 0.45);
 }
 
 /* ==========================================================================
@@ -83,6 +137,75 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+  /* Standard properties for Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar Animation: Fade-in on hover of scrollable container */
+.table-responsive-container,
+.leaderboard-list,
+.sidebar,
+.modal-card {
+  transition: scrollbar-color 0.3s ease;
+}
+
+/* WebKit-based scrollbar styling (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* By default, keep scrollbar thumb translucent / transparent for less distraction */
+.table-responsive-container::-webkit-scrollbar-thumb,
+.leaderboard-list::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb,
+.modal-card::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 999px;
+  transition: background-color 0.3s ease;
+}
+
+/* Fade-in scrollbar thumb on container hover */
+.table-responsive-container:hover::-webkit-scrollbar-thumb,
+.leaderboard-list:hover::-webkit-scrollbar-thumb,
+.sidebar:hover::-webkit-scrollbar-thumb,
+.modal-card:hover::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+}
+
+/* Direct hover glow effect on scrollbar thumb */
+.table-responsive-container::-webkit-scrollbar-thumb:hover,
+.leaderboard-list::-webkit-scrollbar-thumb:hover,
+.sidebar::-webkit-scrollbar-thumb:hover,
+.modal-card::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover) !important;
+}
+
+/* Page body level scrollbar (always thin, integrated with layout background) */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
 }
 
 body {
@@ -137,7 +260,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.5px;
-  background: linear-gradient(135deg, var(--accent-color), #818cf8);
+  background: linear-gradient(135deg, var(--accent-color), var(--color-grand-total));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -902,9 +1025,9 @@ input:checked + .slider:before {
 .table-responsive-container {
   overflow-x: auto;
   border-radius: var(--radius-md);
-  border: 1px solid #1e293b;
-  background-color: #040810;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .pivot-table {
@@ -912,23 +1035,23 @@ input:checked + .slider:before {
   border-collapse: collapse;
   text-align: center;
   font-size: 0.85rem;
-  background-color: #040810;
+  background-color: var(--bg-primary);
 }
 
 .pivot-table th, 
 .pivot-table td {
   padding: 6px 10px;
-  border-bottom: 1px solid #162035;
+  border-bottom: 1px solid var(--border-color);
   white-space: nowrap;
   text-align: center;
 }
 
 .pivot-table th {
-  background-color: #040810;
+  background-color: var(--bg-primary);
   font-family: var(--font-display);
   font-weight: 700;
-  color: #94a3b8;
-  border-bottom: 2px solid #1e293b;
+  color: var(--text-secondary);
+  border-bottom: 2px solid var(--border-color);
 }
 
 /* Header Kategori Khusus */
@@ -937,9 +1060,9 @@ input:checked + .slider:before {
   max-width: 170px;
   position: sticky;
   left: 0;
-  background-color: #040810 !important;
+  background-color: var(--bg-primary) !important;
   z-index: 10;
-  border-right: 1px solid #1e293b;
+  border-right: 1px solid var(--border-color);
   text-align: left !important;
   padding: 6px 10px 6px 14px !important;
 }
@@ -948,19 +1071,22 @@ input:checked + .slider:before {
   font-weight: 600;
   position: sticky;
   left: 0;
-  background-color: #040810 !important;
+  background-color: var(--bg-primary) !important;
   z-index: 10;
-  border-right: 1px solid #1e293b;
+  border-right: 1px solid var(--border-color);
   text-align: left !important;
   white-space: normal;
   line-height: 1.2;
   padding: 6px 10px 6px 14px !important;
-  color: #FBFFFF;
+  color: var(--color-teknisi);
+}
+
+.dark-theme .pivot-table tbody td.td-technician {
   text-shadow: 0 0 5px rgba(251, 255, 255, 0.45);
 }
 
 .pivot-table tbody tr:hover td.td-technician {
-  background-color: #0c1527 !important;
+  background-color: var(--bg-secondary) !important;
 }
 
 /* Sel Angka & Interaktivitas */
@@ -979,11 +1105,11 @@ input:checked + .slider:before {
   border-radius: 6px;
   font-weight: 800;
   font-size: 1.15rem;
-  background-color: #0c1527;
-  color: #334155;
+  background-color: var(--bg-secondary);
+  color: var(--text-muted);
   cursor: pointer;
   transition: all 0.2s var(--transition-bounce);
-  border: 1.5px solid #1e293b;
+  border: 1.5px solid var(--border-color);
 }
 
 /* Dim 0 counts */
@@ -994,83 +1120,83 @@ input:checked + .slider:before {
 /* States on Badge */
 .pivot-number-badge:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.2);
 }
 
 /* Warna Khusus Jika Jumlah > 0 */
-/* OGP (Neon Light Grey: #D3D3D3) */
+/* OGP (Neon Light Grey / Deep Slate Blue) */
 .pivot-cell-active[data-status="OGP"] .pivot-number-badge {
-  background-color: rgba(211, 211, 211, 0.12);
-  color: #D3D3D3;
-  border-color: #D3D3D3;
-  box-shadow: 0 0 8px rgba(211, 211, 211, 0.3);
+  background-color: var(--color-ogp-bg);
+  color: var(--color-info-text);
+  border-color: var(--color-info);
+  box-shadow: 0 0 8px var(--color-ogp-glow);
 }
 .pivot-cell-active[data-status="OGP"] .pivot-number-badge:hover {
-  background-color: #D3D3D3;
-  color: #040810;
-  box-shadow: 0 0 15px rgba(211, 211, 211, 0.7);
+  background-color: var(--color-info);
+  color: var(--bg-primary);
+  box-shadow: 0 0 15px var(--color-ogp-glow-hover);
 }
 
-/* TERPASANG & COMPLETE PS (Neon green: #39ff14) */
+/* TERPASANG & COMPLETE PS (Neon green / Pastel Green) */
 .pivot-cell-active[data-status="TERPASANG"] .pivot-number-badge,
 .pivot-cell-active[data-status="COMPLETE PS"] .pivot-number-badge {
-  background-color: rgba(57, 255, 20, 0.12);
-  color: #39ff14;
-  border-color: #39ff14;
-  box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+  background-color: var(--color-success-bg);
+  color: var(--color-success-text);
+  border-color: var(--color-success);
+  box-shadow: 0 0 8px var(--color-success-glow);
 }
 .pivot-cell-active[data-status="TERPASANG"] .pivot-number-badge:hover,
 .pivot-cell-active[data-status="COMPLETE PS"] .pivot-number-badge:hover {
-  background-color: #39ff14;
-  color: #040810;
-  box-shadow: 0 0 15px rgba(57, 255, 20, 0.8);
+  background-color: var(--color-success);
+  color: var(--bg-primary);
+  box-shadow: 0 0 15px var(--color-success-glow-hover);
 }
 
-/* KENDALA PELANGGAN, TEKNIS, DAN LAINNYA (Neon RED: #F72119) */
+/* KENDALA PELANGGAN, TEKNIS, DAN LAINNYA (Neon RED / Cotton Candy Pink) */
 .pivot-cell-active[data-status="KENDALA PELANGGAN"] .pivot-number-badge,
 .pivot-cell-active[data-status="KENDALA TEKNIS"] .pivot-number-badge,
 .pivot-cell-active[data-status="KENDALA LAINNYA"] .pivot-number-badge,
 .pivot-cell-active[data-status="KENDALA"] .pivot-number-badge,
 .pivot-cell-active[data-status="PENDING"] .pivot-number-badge {
-  background-color: rgba(247, 33, 25, 0.12);
-  color: #F72119;
-  border-color: #F72119;
-  box-shadow: 0 0 8px rgba(247, 33, 25, 0.4);
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger-text);
+  border-color: var(--color-danger);
+  box-shadow: 0 0 8px var(--color-danger-glow);
 }
 .pivot-cell-active[data-status="KENDALA PELANGGAN"] .pivot-number-badge:hover,
 .pivot-cell-active[data-status="KENDALA TEKNIS"] .pivot-number-badge:hover,
 .pivot-cell-active[data-status="KENDALA LAINNYA"] .pivot-number-badge:hover,
 .pivot-cell-active[data-status="KENDALA"] .pivot-number-badge:hover,
 .pivot-cell-active[data-status="PENDING"] .pivot-number-badge:hover {
-  background-color: #F72119;
-  color: #040810;
-  box-shadow: 0 0 15px rgba(247, 33, 25, 0.8);
+  background-color: var(--color-danger);
+  color: var(--bg-primary);
+  box-shadow: 0 0 15px var(--color-danger-glow-hover);
 }
 
-/* TOTAL TUGAS & GRAND TOTAL (Neon Cyan: #4BF0FC) */
+/* TOTAL TUGAS & GRAND TOTAL (Neon Cyan / Baby Blue) */
 .pivot-cell-active[data-status="TOTAL TUGAS"] .pivot-number-badge,
 .pivot-cell-active[data-status="GRAND TOTAL"] .pivot-number-badge {
-  background-color: rgba(75, 240, 252, 0.12);
-  color: #4BF0FC;
-  border-color: #4BF0FC;
-  box-shadow: 0 0 8px rgba(75, 240, 252, 0.4);
+  background-color: var(--color-grand-total-bg);
+  color: var(--color-grand-total-text);
+  border-color: var(--color-grand-total);
+  box-shadow: 0 0 8px var(--color-grand-total-glow);
 }
 .pivot-cell-active[data-status="TOTAL TUGAS"] .pivot-number-badge:hover,
 .pivot-cell-active[data-status="GRAND TOTAL"] .pivot-number-badge:hover {
-  background-color: #4BF0FC;
-  color: #040810;
-  box-shadow: 0 0 15px rgba(75, 240, 252, 0.8);
+  background-color: var(--color-grand-total);
+  color: var(--bg-primary);
+  box-shadow: 0 0 15px var(--color-grand-total-glow-hover);
 }
 
 /* Total Column / Row styling */
 .tr-total {
-  background-color: #040810 !important;
+  background-color: var(--bg-primary) !important;
   font-weight: 700;
 }
 
 .tr-total td {
-  border-top: 2px solid #1e293b;
-  background-color: #040810 !important;
+  border-top: 2px solid var(--border-color);
+  background-color: var(--bg-primary) !important;
 }
 
 /* Legend */
@@ -1556,7 +1682,7 @@ input:checked + .slider:before {
     word-break: break-word;
     font-size: 0.72rem;
     padding: 5px 3px !important;
-    background-color: #040810 !important;
+    background-color: var(--bg-primary) !important;
   }
 
   .pivot-table tbody td.td-technician {
@@ -1567,7 +1693,7 @@ input:checked + .slider:before {
     word-break: break-word;
     font-size: 0.72rem;
     padding: 5px 3px !important;
-    background-color: #040810 !important;
+    background-color: var(--bg-primary) !important;
   }
 
   .pivot-cell {
