@@ -399,6 +399,14 @@ function initTheme() {
 
 // Memuat setelan API & Mode dari penyimpanan lokal
 function initSettings() {
+  // Jika belum pernah disetel di perangkat ini (kunjungan pertama), setel default ke Google Sheets & URL Anda
+  if (localStorage.getItem('dataMode') === null) {
+    localStorage.setItem('dataMode', 'sheets');
+  }
+  if (localStorage.getItem('webAppUrl') === null) {
+    localStorage.setItem('webAppUrl', 'https://script.google.com/macros/s/AKfycbyI7Qp6_J1LsWeNVoTSg03L9bcYnQAoXs2t6b-MvjsPL7rcLBCsacxjOVVHeW217eeXqQ/exec');
+  }
+
   const savedMode = localStorage.getItem('dataMode');
   const savedUrl = localStorage.getItem('webAppUrl') || '';
   
