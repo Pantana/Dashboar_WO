@@ -835,9 +835,10 @@ function renderPivotTable() {
     });
     
     grandTotal += rowTotal;
+    const isRowTotalActive = rowTotal > 0 ? "pivot-cell-active" : "";
     rowHtml += `
-      <td class="pivot-cell text-success" style="font-weight: 700;">
-        <span class="pivot-number-badge" style="background-color: var(--bg-tertiary);" onclick="openDetailsModal('${teknisi}', '', 'all')">${rowTotal}</span>
+      <td class="pivot-cell ${isRowTotalActive} cell-total-tugas" data-status="TOTAL TUGAS" data-teknisi="${teknisi}">
+        <span class="pivot-number-badge" onclick="openDetailsModal('${teknisi}', '', 'all')">${rowTotal}</span>
       </td>
     </tr>
     `;
@@ -853,8 +854,9 @@ function renderPivotTable() {
   listColumns.forEach(col => {
     const colTotal = totalStatusCol[col];
     const filterType = col === "COMPLETE PS" ? "status" : "grouping";
+    const isActive = colTotal > 0 ? "pivot-cell-active" : "";
     footerHtml += `
-      <td class="pivot-cell">
+      <td class="pivot-cell ${isActive}" data-status="${col}">
         <span class="pivot-number-badge" onclick="openDetailsModal('', '${col}', '${filterType}')">${colTotal}</span>
       </td>
     `;
@@ -862,9 +864,10 @@ function renderPivotTable() {
   
   // Hitung total aktual semua tugas yang disaring (bukan jumlah kolom pivot)
   const actualGrandTotal = filteredTasks.length;
+  const isGrandActive = actualGrandTotal > 0 ? "pivot-cell-active" : "";
   footerHtml += `
-      <td class="pivot-cell">
-        <span class="pivot-number-badge" style="background-color: var(--accent-color); color: white; border-color: var(--accent-color);" onclick="openDetailsModal('', '', 'all')">${actualGrandTotal}</span>
+      <td class="pivot-cell ${isGrandActive} cell-grand-total" data-status="GRAND TOTAL">
+        <span class="pivot-number-badge" onclick="openDetailsModal('', '', 'all')">${actualGrandTotal}</span>
       </td>
     </tr>
   `;
